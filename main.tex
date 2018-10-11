@@ -1,0 +1,74 @@
+\documentclass[oneside]{book}
+
+\usepackage{ctex}
+\usepackage{amsmath}
+\usepackage{esvect}
+\usepackage{bm}
+\usepackage{xcolor}
+\usepackage{graphicx}
+\graphicspath{{fig/}}
+\DeclareGraphicsExtensions{.pdf,.eps,.png,.jpg,.jpeg,.bmp}
+
+\usepackage{geometry}
+    \geometry{paper=a4paper,
+        hmargin = 2cm,
+        vmargin = 2.5cm,
+    }%
+
+%% 超链接
+\usepackage{hyperref}
+    \hypersetup{%
+        bookmarksopen=true,  % 展开书签
+        bookmarksnumbered=true,  % 显示书签编号
+        bookmarksopenlevel=1,
+        unicode=true,  % 使书签支持unicode字符
+        %链接、颜色
+        breaklinks=true,  % 链接自动换行
+        colorlinks=true,  % 加颜色区分链接
+%        linkcolor=title,
+        citecolor=black,  % 文献序号颜色
+    }
+    %定制pdf属性
+    \hypersetup{%
+        pdftitle={math notes},
+        pdfauthor={zousiyu},
+        pdfkeywords={LaTeX, calculus, linear algebra, differential equation},
+        pdfstartview=Fit,%整个页面适合窗口
+        pdfcreator={XeLaTeX \& TeXStudio}
+    }%
+
+%自动引用
+\AtBeginDocument{%
+    \def\figureautorefname{图}%
+    \def\tableautorefname{表}%
+    \def\partautorefname{卷}%
+    \def\appendixautorefname{附录}%
+    \def\equationautorefname{式}%
+    \def\Itemautorefname{列表}%
+    \def\chapterautorefname{章}%
+    \def\sectionautorefname{节}%
+    \def\subsectionautorefname{小节}%
+    \def\subsubsectionautorefname{条目}%
+    \def\paragraphautorefname{自然段}%
+    \def\Hfootnoteautorefname{脚注}%
+    \def\AMSautorefname{式}%
+    \def\theoremautorefname{定理}%
+    \def\pageautorefname{页}%
+}%
+
+% 新命令
+\newcommand{\inv}[1]{#1\raisebox{1.15ex}{$\scriptscriptstyle-\!1$}}
+\newcommand{\adj}[1]{\text{adj($#1$)}}
+\newcommand{\parf}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand*{\df}[2]{\frac{d #1}{d #2}} % 必须在数学环境中使用
+
+\begin{document}
+    \frontmatter
+    \tableofcontents
+    \mainmatter
+    \input{chapter/style_guide}
+    \input{chapter/calculus}
+    \input{chapter/liner_algebra}
+    \input{chapter/differential_equation}
+    \backmatter
+\end{document}
